@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruits_app/core/utils/app_styles.dart';
-import 'package:fruits_app/features/auth/presentation/views/login_view.dart';
+import 'package:fruits_app/features/auth/presentation/views/signin_view.dart';
 
 class PageViewItem extends StatelessWidget {
   const PageViewItem({super.key, required this.image, required this.backgroundImage, required this.subtitle, required this.title,required this.isVisable});
@@ -33,7 +33,7 @@ final bool isVisable;
               visible: isVisable,
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pushReplacementNamed(context, LoginView.routeName);
+                  Navigator.pushReplacementNamed(context, SigninView.routeName);
                 },
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16),

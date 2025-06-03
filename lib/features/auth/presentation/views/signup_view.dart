@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_app/core/services/get_it_services.dart';
 import 'package:fruits_app/features/auth/domain/repos/auth_repos.dart';
 import 'package:fruits_app/features/auth/presentation/manager/cubits/signup/signup_cubit.dart';
-import 'package:fruits_app/features/auth/presentation/views/login_view.dart';
+import 'package:fruits_app/features/auth/presentation/views/signin_view.dart';
 import 'package:fruits_app/features/auth/presentation/views/widgets/signup_view_block_consumer.dart';
 
 class SignupView extends StatelessWidget {

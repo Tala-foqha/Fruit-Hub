@@ -42,3 +42,8 @@ android {
 flutter {
     source = "../.."
 }
+dependencies {
+implementation("com.facebook.android:facebook-login:18.0.3")
+}
+
+

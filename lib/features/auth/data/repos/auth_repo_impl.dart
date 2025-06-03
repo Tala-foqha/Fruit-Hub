@@ -1,4 +1,6 @@
 // features/auth/data/repos/auth_repo_impl.dart
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:fruits_app/core/errors/exceptions.dart';
 import 'package:fruits_app/core/errors/failures.dart';
@@ -23,4 +25,55 @@ class AuthRepoImpl extends AuthRebos {
 }
   
   }
+  
+  @override
+  Future<Either<Failure, UserEntity>> signInWithEmailAndPassword(String email, String password, )async {
+    try {
+  var user=  await firebaseAuthServices.SignInWithEmailAndPassword(email: email, 
+    password: password);
+    return right(UserModel.fromFirebaseUser(user));
+} on CustomException catch (e) {
+  return left(ServerFailure(e.message));
+  
+}catch(e){
+  log('Exception in AuthRepoImpl.createUserWithEmailAndPassword: ${e.toString()}');
+     return left(
+        ServerFailure(
+          'حدث خطأ ما. الرجاء المحاولة مرة اخرى.',
+        ),
+      );
+}
+  }
+  
+  @override
+  Future<Either<Failure, UserEntity>> signInWithGoogle()async {
+    try{
+      var user=await firebaseAuthServices.signInWithGoogle();
+      return Right(UserModel.fromFirebaseUser(user));
+      
+    }catch(e){
+      
+      log('Exception in AuthRepoImpl.createUserWithEmailAndPassword: ${e.toString()}');
+    return left(ServerFailure('حدث خطأ ما الرجاء المحاولة مرةأخرى.'));
+    
+    }
+
+  }
+  
+  @override
+  Future<Either<Failure, UserEntity>> signInWithFacebook()async {
+  try{
+      var user=await firebaseAuthServices.signInWithFacebook();
+      return Right(UserModel.fromFirebaseUser(user));
+      
+    }catch(e){
+      
+      log('Exception in AuthRepoImpl.createUserWithEmailAndPassword: ${e.toString()}');
+    return left(ServerFailure('حدث خطأ ما الرجاء المحاولة مرةأخرى.'));
+    
+    }
+  }
+  
+  
+  
 }
