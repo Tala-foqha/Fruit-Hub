@@ -15,6 +15,7 @@ class FirebaseAuthServices {
       );
       return credential.user!;
     } on FirebaseAuthException catch (e) {
+      print('FirebaseAuthException Code:${e.code}');
       print("Exception in FirebaseAuthService.createUserWithEmailAndPassword: ${e.toString()} and code is ${e.code}");
       if (e.code == 'weak-password') {
         throw CustomException(message: 'الرقم السري ضعيف جداً.');

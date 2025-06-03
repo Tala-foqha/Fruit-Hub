@@ -14,7 +14,8 @@ Future<void>createUserWithEmailAndPassword(
 emit(SignupLoading());
 final result =await authRepo.createUserWithEmailAndPassword(
   email, password, name,);
-  result.fold((failure)=>emit(SignupFailure(error:failure.message)),
+  result.fold(
+    (failure)=>emit(SignupFailure(error:failure.message)),
    (success)=>emit(SignupSuccess(userEntity:success )));
 
 
