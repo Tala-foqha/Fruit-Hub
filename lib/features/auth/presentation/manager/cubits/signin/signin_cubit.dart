@@ -9,11 +9,11 @@ part 'signin_state.dart';
 class SigninCubit extends Cubit<SigninState> {
   SigninCubit(this.authRebos) : super(SigninInitial());
   final AuthRebos authRebos;
-
-    Future<void> signin(String email, String password) async {
+ Future<void> signin(String email, String password) async {
     emit(SigninLoading());
-    var result = await authRebos.signInWithEmailAndPassword(
-      email,password,
+    var result = await authRebos.signinWithEmailAndPassword(
+      email,
+      password,
     );
     result.fold(
       (failure) => emit(SignupFailure(message: failure.message)),
@@ -21,23 +21,30 @@ class SigninCubit extends Cubit<SigninState> {
     );
   }
 
-    Future<void> signinWithGoogle() async {
+  Future<void> signinWithGoogle() async {
     emit(SigninLoading());
-    var result = await authRebos.signInWithGoogle(
-    );
+    var result = await authRebos.signinWithGoogle();
     result.fold(
       (failure) => emit(SignupFailure(message: failure.message)),
       (userEntity) => emit(SigninSuccess(userEntity: userEntity)),
     );
   }
-   Future<void> signInWithFacebook() async {
-    emit(SigninLoading());
-    var result = await authRebos.signInWithFacebook(
-    );
-    result.fold(
-      (failure) => emit(SignupFailure(message: failure.message)),
-      (userEntity) => emit(SigninSuccess(userEntity: userEntity)),
-    );
-  }
-  
+
+  // Future<void> signinWithFacebook() async {
+  //   emit(SigninLoading());
+  //   var result = await authRebos.signinWithFacebook();
+  //   result.fold(
+  //     (failure) => emit(SignupFailure(message: failure.message)),
+  //     (userEntity) => emit(SigninSuccess(userEntity: userEntity)),
+  //   );
+  // }
+
+  // Future<void> signinWithApple() async {
+  //   emit(SigninLoading());
+  //   var result = await authRebos.signinWithApple();
+  //   result.fold(
+  //     (failure) => emit(SigninFailure(message: failure.message)),
+  //     (userEntity) => emit(SigninSuccess(userEntity: userEntity)),
+  //   );
+  // }
 }

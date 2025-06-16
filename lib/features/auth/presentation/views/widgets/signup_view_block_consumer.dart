@@ -16,6 +16,7 @@ class SignupViewBlovkConsumer extends StatelessWidget {
     return BlocConsumer<SignupCubit, SignupState>(
       builder: (context, state) {
         
+        
           return ModalProgressHUD(
             inAsyncCall: state is SignupLoading?true:false,
             child: SignupViewBody());
@@ -24,6 +25,9 @@ class SignupViewBlovkConsumer extends StatelessWidget {
        listener: (BuildContext context, SignupState state) { 
         if(state is SignupFailure){
           buildErrorBar(context, state.error);
+        }
+        if(state is SignupSuccess){
+          Navigator.pop(context);
         }
         },
     );

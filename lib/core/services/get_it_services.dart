@@ -9,13 +9,13 @@ import 'package:get_it/get_it.dart';
 final getIt = GetIt.instance;
 
 void setup() {
-  getIt.registerSingleton<FirebaseAuthServices>(FirebaseAuthServices());
+  getIt.registerSingleton<FirebaseAuthService>(FirebaseAuthService());
     getIt.registerSingleton<DatabaseServices>(FireStoreServices());
 
   getIt.registerSingleton<AuthRebos>(AuthRepoImpl(
   
-      firebaseAuthServices: getIt<FirebaseAuthServices>(),
-    databaseServices:   getIt<DatabaseServices>()
+      firebaseAuthService: getIt<FirebaseAuthService>(),
+    databaseService:   getIt<DatabaseServices>()
 
   ));
 
