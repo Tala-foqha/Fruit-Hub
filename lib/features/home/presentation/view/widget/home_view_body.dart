@@ -1,5 +1,6 @@
 // features/home/presentation/view/widget/home_view_body.dart
 import 'package:flutter/material.dart';
+import 'package:fruits_app/core/widgets/search_text_field.dart';
 import 'package:fruits_app/features/home/presentation/view/widget/custom_home_app_bar.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -7,12 +8,21 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      
-      slivers: [
-       
-        SliverToBoxAdapter(child: CustomHomeAppBar())
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: CustomScrollView(
+        
+        slivers: [
+         
+          SliverToBoxAdapter(child: Column(
+            children: [
+              CustomHomeAppBar(),
+              SizedBox(height: 16,),
+              SearchTextField()
+            ],
+          ))
+        ],
+      ),
     );
   }
 }
