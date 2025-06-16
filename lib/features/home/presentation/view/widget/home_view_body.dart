@@ -1,5 +1,6 @@
 // features/home/presentation/view/widget/home_view_body.dart
 import 'package:flutter/material.dart';
+import 'package:fruits_app/core/widgets/fruit_item.dart';
 import 'package:fruits_app/core/widgets/search_text_field.dart';
 import 'package:fruits_app/features/home/presentation/view/widget/best_seller_header.dart';
 import 'package:fruits_app/features/home/presentation/view/widget/custom_home_app_bar.dart';
@@ -25,7 +26,8 @@ class HomeViewBody extends StatelessWidget {
            SizedBox(height:12 ,),
              FeaturedList(),
              SizedBox(height: 12,),
-             BestSellerHeader()
+             BestSellerHeader(),
+             FruitItem(),
             ],
           ))
         ],
