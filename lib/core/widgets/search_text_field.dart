@@ -8,31 +8,43 @@ class SearchTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return Container(
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Color(0x0A000000),
+            blurRadius: 9,
+            offset: Offset(0, 2),
+            spreadRadius: 0
+          )
+        ]
+      ),
+      child: TextField(
+        
+        
+        keyboardType:TextInputType.text ,
+      decoration: InputDecoration(
+        suffixIcon: SizedBox(
+          width: 20,
+          child: Center(child: SvgPicture.asset('assets/images/setting-4.svg'))),
+        hintText: 'ابحث عن.......',
+        prefixIcon: SizedBox(
+          width: 20,
+          child: Center(child: SvgPicture.asset('assets/images/search-normal.svg'))),
+         hintStyle: AppStyles.regular13.copyWith(
+      color: Color(0xff949D9E)
+         ),
+        filled: true,
+        fillColor: Colors.white,
+        border:buildBorder(),
+        enabledBorder: buildBorder(),
+        focusedBorder: buildBorder(),
       
       
-      keyboardType:TextInputType.text ,
-    decoration: InputDecoration(
-      suffixIcon: SizedBox(
-        width: 20,
-        child: Center(child: SvgPicture.asset('assets/images/setting-4.svg'))),
-      hintText: 'ابحث عن.......',
-      prefixIcon: SizedBox(
-        width: 20,
-        child: Center(child: SvgPicture.asset('assets/images/search-normal.svg'))),
-   hintStyle: AppStyles.regular13.copyWith(
-    color: Color(0xff949D9E)
-   ),
-      filled: true,
-      fillColor: Colors.white,
-      border:buildBorder(),
-      enabledBorder: buildBorder(),
-      focusedBorder: buildBorder(),
-
-
-
-
-    ),  
+      
+      
+      ),  
+      ),
     );
   }
 

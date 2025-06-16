@@ -1,0 +1,62 @@
+// features/home/presentation/view/widget/featured_item.dart
+import 'package:flutter/material.dart';
+import 'package:flutter_svg_provider/flutter_svg_provider.dart' as svg;
+import 'package:fruits_app/core/utils/app_images.dart';
+import 'package:fruits_app/core/utils/app_styles.dart';
+import 'package:fruits_app/features/home/presentation/view/widget/featured_item_button.dart';
+
+class FeaturedItem extends StatelessWidget {
+  const FeaturedItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    var itemWidth=MediaQuery.sizeOf(context).width;
+    return SizedBox(
+      width:itemWidth,
+      child: AspectRatio(
+        aspectRatio: 342/158,
+        child: Stack(
+          children: [
+            Positioned(
+              left: 0,
+              bottom: 0,
+              top: 0,
+              right: itemWidth*.4,
+              child: Image.asset(Assets.resourceImagesPageViewItem2Image,fit: BoxFit.fill,),),
+            
+            Container(
+              width: itemWidth*.5,
+              decoration: BoxDecoration(
+                image: DecorationImage(image:svg.Svg(Assets.resourceImagesFeaturedItemBackground),
+                fit: BoxFit.fill
+                )
+                ),
+              child: Padding(
+                padding: const EdgeInsets.only(right: 33),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 25,),
+                    Text('عروض العيد',style: AppStyles.regular13.copyWith(
+                      color: Colors.white10
+                    ),),
+                    Spacer(),
+                    Text('خصم 25%',style: AppStyles.bold19 .copyWith(
+                      color: Colors.white
+                    )        ,),
+                    SizedBox(height: 11,),
+                    const Spacer(),
+                    FeaturedItemButton(),
+                    SizedBox(height:29 ,)
+                        
+                  ],
+                ),
+              ),
+        
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
