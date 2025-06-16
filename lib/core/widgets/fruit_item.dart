@@ -1,7 +1,6 @@
 // core/widgets/fruit_item.dart
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:fruits_app/core/utils/app_colors.dart';
 import 'package:fruits_app/core/utils/app_styles.dart';
 
@@ -11,8 +10,7 @@ class FruitItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 163,
-      height:250 ,
+      
       decoration: ShapeDecoration(
         color: Color(0xFFF3F5F7),
         shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(4) )

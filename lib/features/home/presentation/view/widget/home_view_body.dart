@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fruits_app/core/widgets/fruit_item.dart';
 import 'package:fruits_app/core/widgets/search_text_field.dart';
 import 'package:fruits_app/features/home/presentation/view/widget/best_seller_header.dart';
+import 'package:fruits_app/features/home/presentation/view/widget/best_sellin_grid_view.dart';
 import 'package:fruits_app/features/home/presentation/view/widget/custom_home_app_bar.dart';
 import 'package:fruits_app/features/home/presentation/view/widget/featured_item.dart';
 import 'package:fruits_app/features/home/presentation/view/widget/featured_list.dart';
@@ -27,10 +28,14 @@ class HomeViewBody extends StatelessWidget {
              FeaturedList(),
              SizedBox(height: 12,),
              BestSellerHeader(),
-             FruitItem(),
+             SizedBox(height: 8,)
+            
             ],
-          ))
+          )),
+
+          BestSellinGridView(),
         ],
+         
       ),
     );
   }
