@@ -20,7 +20,7 @@ class CustomHomeAppBar extends StatelessWidget {
         ),
         child: 
       SvgPicture.asset('assets/images/notification.svg'),),
-      leading: Image.asset('assets/images/Ellipse 11.png'),
+      leading: Image.asset('assets/images/Ellipse.png'),
       title: Text('صباح الخير !..',style: AppStyles.regular16.copyWith(
         color: Color(0xff949D9E)
       ),
