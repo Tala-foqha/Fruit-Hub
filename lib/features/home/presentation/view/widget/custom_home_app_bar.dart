@@ -10,16 +10,7 @@ class CustomHomeAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       trailing:
-      Container(
-       
-       padding: EdgeInsets.all(12),
-        decoration: ShapeDecoration(
-          shape: OvalBorder(),
-
-          color: Color(0xffEEF8ED)
-        ),
-        child: 
-      SvgPicture.asset('assets/images/notification.svg'),),
+      NotificationWidget(),
       leading: Image.asset('assets/images/Ellipse.png'),
       title: Text('صباح الخير !..',style: AppStyles.regular16.copyWith(
         color: Color(0xff949D9E)
@@ -30,5 +21,25 @@ class CustomHomeAppBar extends StatelessWidget {
       ),),
 
     );
+  }
+}
+
+class NotificationWidget extends StatelessWidget {
+  const NotificationWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+     
+     padding: EdgeInsets.all(12),
+      decoration: ShapeDecoration(
+        shape: OvalBorder(),
+    
+        color: Color(0xffEEF8ED)
+      ),
+      child: 
+    SvgPicture.asset('assets/images/notification.svg'),);
   }
 }
