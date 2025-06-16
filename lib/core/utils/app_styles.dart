@@ -31,6 +31,11 @@ import 'package:google_fonts/google_fonts.dart';
     fontWeight: FontWeight.bold,
     fontSize: 19,
   );
+  static final TextStyle normal16 = GoogleFonts.cairo(
+    fontWeight: FontWeight.normal,
+    fontSize: 19,
+  );
+
 
   static final TextStyle semiBold16 = GoogleFonts.cairo(
     fontWeight: FontWeight.w600,
