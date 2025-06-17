@@ -13,7 +13,7 @@ static const routeName='best-selling';
       appBar: AppBar(
         actions: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: NotificationWidget(),
           )
         ],

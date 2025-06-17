@@ -8,8 +8,9 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var splashViweBody = SplashViweBody();
     return Scaffold(
-      body:SafeArea(child: SplashViweBody()) ,
+      body:SafeArea(child: splashViweBody) ,
     ) ;
   }
 }

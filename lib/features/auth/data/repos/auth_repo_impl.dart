@@ -4,10 +4,12 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fruits_app/constant.dart';
 import 'package:fruits_app/core/errors/exceptions.dart';
 import 'package:fruits_app/core/errors/failures.dart';
 import 'package:fruits_app/core/services/data_base_services.dart';
 import 'package:fruits_app/core/services/firebase_auth_services.dart';
+import 'package:fruits_app/core/services/shared_preferences_singleton.dart';
 import 'package:fruits_app/core/utils/backend_endpoint.dart';
 import 'package:fruits_app/features/auth/data/models/user_model.dart';
 import 'package:fruits_app/features/auth/domain/entities/user_entity.dart';
@@ -64,7 +66,7 @@ class AuthRepoImpl extends AuthRebos {
       var user = await firebaseAuthService.signInWithEmailAndPassword(
           email: email, password: password);
       var userEntity = await getUserData(uid: user.uid);
-      // await saveUserData(user: userEntity);
+       await saveUserData(user: userEntity);
       return right(
         userEntity,
       );
@@ -88,7 +90,11 @@ class AuthRepoImpl extends AuthRebos {
     try {
       user = await firebaseAuthService.signInWithGoogle();
 
+
+
       var userEntity = UserModel.fromFirebaseUser(user);
+                   await saveUserData(user: userEntity);
+
       var isUserExist = await databaseService.checkIfDataExists(
           path: BackendEndpoint.isUserExist, documentId: user.uid);
       if (isUserExist) {
@@ -167,6 +173,12 @@ class AuthRepoImpl extends AuthRebos {
     var userData = await databaseService.getData(
         path: BackendEndpoint.getUserData, documentId: uid);
     return UserModel.fromJson(userData);
+  }
+  
+  @override
+  Future saveUserData({required UserEntity user}) async{
+   var jsonData=jsonEncode(UserModel.fromEntity(user).toMap());
+   await SharedPreferencesSingleton.setString(kUser, jsonData);
   }
 
   // Future saveUserData({required UserEntity user}) async {

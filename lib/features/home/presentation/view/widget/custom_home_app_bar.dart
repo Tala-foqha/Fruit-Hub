@@ -1,6 +1,7 @@
 // features/home/presentation/view/widget/custom_home_app_bar.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruits_app/core/helper_functions/get_user.dart';
 import 'package:fruits_app/core/utils/app_styles.dart';
 
 class CustomHomeAppBar extends StatelessWidget {
@@ -16,7 +17,7 @@ class CustomHomeAppBar extends StatelessWidget {
         color: Color(0xff949D9E)
       ),
       textAlign: TextAlign.right,),
-      subtitle: Text('أحمد مصطفي',style: AppStyles.bold16.copyWith(
+      subtitle: Text(getUser().name,style: AppStyles.bold16.copyWith(
         color: Color(0xff0C0D0D)
       ),),
 
