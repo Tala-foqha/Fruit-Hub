@@ -1,5 +1,6 @@
-// features/add_product/data/model/review_model.dart
-import 'package:fruit_hub_dashboard/features/add_product/domain/entities/review_entity.dart';
+// core/models/review_model.dart
+
+import 'package:fruits_app/core/entitis/review_entity.dart';
 
 class ReviewModel {
   final String name;
@@ -21,6 +22,23 @@ return ReviewModel(name: reviewentity.name,
    date: reviewentity.date, 
 reviewDescription: reviewentity.reviewDescription);
   }
+  
+  factory ReviewModel.fromJson(Map<String, dynamic> json) {
+    return ReviewModel(
+        name: json['name'],
+        image: json['image'],
+        rating: json['ratting'],
+        date: json['date'],
+        reviewDescription: json['reviewDescription']);
+  }
+ ReviewEntity toEntity(){
+    return ReviewEntity(name: name,
+     image: image,
+      rating: rating,
+       date: date,
+        reviewDescription: reviewDescription);
+  }
+
 
   toJson(){
     return {

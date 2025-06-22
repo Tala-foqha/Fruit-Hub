@@ -1,16 +1,16 @@
-// features/home/presentation/view/home_view.dart
+// features/home/presentation/view/main_view.dart
 import 'package:flutter/material.dart';
 import 'package:fruits_app/features/home/presentation/view/widget/custom_bottom_navigation_bar.dart';
-import 'package:fruits_app/features/home/presentation/view/widget/home_view_body.dart';
+import 'package:fruits_app/features/home/presentation/view/widget/home_view.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+class MainView extends StatelessWidget {
+  const MainView({super.key});
 static const routeName='home-view';
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       bottomNavigationBar: CustomBottomNavigationBar(),
-      body: SafeArea(child: HomeViewBody()),
+      body: SafeArea(child: HomeView()),
     );
   }
 }

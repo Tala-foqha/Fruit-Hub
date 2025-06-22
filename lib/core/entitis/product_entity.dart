@@ -1,9 +1,9 @@
-// features/add_product/domain/entities/add_product_input_entity.dart
+// core/entitis/product_entity.dart
 import 'dart:io';
 
-import 'package:fruit_hub_dashboard/features/add_product/domain/entities/review_entity.dart';
+import 'package:fruits_app/core/entitis/review_entity.dart';
 
-class AddProductInputEntity {
+class ProductEntity {
   final String name,code,description;
   final num price;
   //  File ?image;
@@ -17,7 +17,7 @@ class AddProductInputEntity {
   final List<ReviewEntity>reviews;
 
 
-  AddProductInputEntity(   {required this.name,
+  ProductEntity(   {required this.name,
    required this.code, 
    required this.description, 
     required this.price, 
